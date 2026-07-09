@@ -9,7 +9,7 @@ API_KEY = os.getenv("GEMINI_API_KEY")
  - 也可以執行時再設定
  - 1. ```cmd``` 命令提示字元
 ```powershell
-set GEMINI_API_KEY=AIzaSyASrGKQZ4gzcp90tIb_usHjQl34lifgS
+set GEMINI_API_KEY=<user_api_key>
 ```
  - 2. PowerShell 視窗
 ```powershell
