@@ -1,0 +1,11 @@
+# Local environment variables
+.env
+.env.local
+.env.development.local
+.env.production.local
+
+# Avoid ignoring public template templates
+!.env.example
+
+# Virtual environment directories
+venv/
