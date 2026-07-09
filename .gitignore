@@ -9,3 +9,6 @@
 
 # Virtual environment directories
 venv/
+
+# ignore files
+.gitignore
