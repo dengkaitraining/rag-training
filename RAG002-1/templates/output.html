@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask 處理結果</title>
+</head>
+<body>
+    <h1>Flask 處理結果</h1>
+    <p>收到的 User Prompt 是：</p>
+    <blockquote>
+        {{ user_prompt }}<br/><br/>
+        <!--Response: <br/>{{ llm_response }}<br/> -->
+    </blockquote>
+    <div>
+        <h2>LLM 回應的 HTML 內容：</h2>
+        <div style="border: 1px solid #ccc; padding: 10px;">
+            {{ llm_response|safe }}
+        </div>
+    </div>
+    <br>
+    <a href="/">返回首頁</a>
+</body>
+</html>
