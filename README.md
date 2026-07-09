@@ -1,3 +1,14 @@
+<!--
+![GitHub stars](https://img.shields.io/github/stars/dengkaitraining/rag-training?style=social)
+![GitHub forks](https://img.shields.io/github/forks/dengkaitraining/rag-training?style=social)
+![GitHub watchers](https://img.shields.io/github/watchers/dengkaitraining/rag-training?style=social)
+-->
+
+![GitHub repo size](https://img.shields.io/github/repo-size/dengkaitraining/rag-training)
+![GitHub language count](https://img.shields.io/github/languages/count/dengkaitraining/rag-training)
+![GitHub top language](https://img.shields.io/github/languages/top/dengkaitraining/rag-training)
+![GitHub last commit](https://img.shields.io/github/last-commit/dengkaitraining/rag-training?color=red)
+
 ## 「Python Flask 框架」與「檢索增強生成應用系統開發」課程範例
 ### 1. 建立 ```venv``` 開發與測試環境
 | python 模組 | 說明 |
