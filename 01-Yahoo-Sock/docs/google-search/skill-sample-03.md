@@ -20,7 +20,8 @@ data-exporter/
 這是放在技能根目錄下的核心描述檔，通常採用 Front Matter 格式定義元數據（Metadata）：
 ```markdown
 ---
-name: data-exporterdescription: 用於處理原始 JSON 資料，並根據內部欄位規範將其轉換、清理、匯出為標準 CSV 檔案。當使用者要求「匯出報告」、「轉換資料格式」或「清理欄位」時，應觸發此技能。
+name: data-exporter
+description: 用於處理原始 JSON 資料，並根據內部欄位規範將其轉換、清理、匯出為標準 CSV 檔案。當使用者要求「匯出報告」、「轉換資料格式」或「清理欄位」時，應觸發此技能。
 ---
 
 # Instructions（操作指令）
