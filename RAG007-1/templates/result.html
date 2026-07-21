@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>鳶尾花品種預測 - 結果頁面</title>
+</head>
+<body>
+<h1>預測結果</h1>
+
+{% if error %}
+<p>{{ error }}</p>
+<p><a href="/">回到輸入頁面重新輸入</a></p>
+{% else %}
+
+<h2>您輸入的數值</h2>
+<table>
+  <tr>
+    <th>特徵</th>
+    <th>數值 (cm)</th>
+  </tr>
+  <tr>
+    <td>x1 花萼長度 (sepal length)</td>
+    <td>{{ x1 }}</td>
+  </tr>
+  <tr>
+    <td>x2 花萼寬度 (sepal width)</td>
+    <td>{{ x2 }}</td>
+  </tr>
+  <tr>
+    <td>x3 花瓣長度 (petal length)</td>
+    <td>{{ x3 }}</td>
+  </tr>
+  <tr>
+    <td>x4 花瓣寬度 (petal width)</td>
+    <td>{{ x4 }}</td>
+  </tr>
+</table>
+
+<h2>模型預測品種</h2>
+<p>預測結果為：<strong>{{ prediction }}</strong></p>
+
+<h2>輸出層各類別 Sigmoid 值</h2>
+<table>
+  <tr>
+    <th>品種</th>
+    <th>Sigmoid 輸出值</th>
+  </tr>
+  {% for name, value in probs %}
+  <tr>
+    <td>{{ name }}</td>
+    <td>{{ "%.4f"|format(value) }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+<h2>隱藏層 2 個神經元的 Sigmoid 輸出值（計算過程）</h2>
+<table>
+  <tr>
+    <th>隱藏神經元</th>
+    <th>Sigmoid 輸出值</th>
+  </tr>
+  {% for h in hidden %}
+  <tr>
+    <td>h{{ loop.index }}</td>
+    <td>{{ "%.4f"|format(h) }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+<p><a href="/">回到輸入頁面，重新輸入</a></p>
+
+{% endif %}
+</body>
+</html>

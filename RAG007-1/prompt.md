@@ -1,0 +1,120 @@
+```markdown
+# 給 {x1,x2,x3,x4}，經過 Forwarding計算，
+ u1= 1.0/(1+exp(-(x1*w11 + x2*w21 + x3*w31 + x4*w41 + b1)))
+ u2= 1.0/(1+exp(-(x1*w12 + x2*w22 + x3*w32 + x4*w44 + b2)))
+ y1= 1.0/(1.0 +exp(-(u1*v11 + u2*v21 + c1)))
+ y2= 1.0/(1.0 +exp(-(u1*v12 + u2*v22 + c2)))
+ y3= 1.0/(1.0 +exp(-(u1*v13 + u2*v23 + c3)))
+就得到 {y1,y2,y3}。
+```
+
+```markdown
+# 編寫一個4x2x3 的ANN MAchine Learning 範例，規格如<spec>所述。
+<spec>
+ 1. 訓練資料集使用 iris open data
+ 2. ANN Model 的參數儲存 yaml檔，註明參數與ANN的對應關係。
+ 3, 使用 sci-kit Module
+ 4. 隱藏層與輸出層的Activation function使用 Sigmoid
+</spec>
+```
+
+```markdown
+<yaml>所描述是一個 4x2x3 的 ANN 模型詳細資訊，包含參數與其他。此 ANN Model的作用是給定花萼長度、花萼寬度、花瓣長度、花瓣寬度，就可以知道鳶尾花的品種是 setosa、versicolor、或 virginica。
+編寫一個Python Flask Web Application，規格如<spec>所述。
+<spec>
+  1. 輸入x1,x2,x3的表單頁面是靜態頁面。
+  2. 呈現預測結果的頁面是動態頁面。
+  3. 前端不使用CSS，也不使用Javascript。
+</spec>
+<yaml>
+model_description: 4x2x3 ANN (Iris dataset) - trained with scikit-learn MLPClassifier
+architecture:
+  input_layer:
+    neurons: 4
+    description: 對應 iris 4 個特徵 (input features)
+    feature_order:
+    - sepal length (cm)
+    - sepal width (cm)
+    - petal length (cm)
+    - petal width (cm)
+  hidden_layer:
+    neurons: 2
+    activation: sigmoid
+    description: 隱藏層，2 個神經元，activation function 為 Sigmoid
+  output_layer:
+    neurons: 3
+    activation: sigmoid
+    description: 輸出層，3 個神經元，對應 3 個花種類別。依規格使用 Sigmoid；sklearn 訓練時內部使用 softmax，此處另以手動前向傳遞方式套用
+      Sigmoid（見 forward_pass_note）。
+    class_order:
+    - setosa
+    - versicolor
+    - virginica
+parameters:
+  W1_input_to_hidden:
+    shape:
+    - 4
+    - 2
+    meaning: 輸入層(4) -> 隱藏層(2) 的權重矩陣, W1[i][j] = 第 i 個輸入特徵 到 第 j 個隱藏神經元的權重
+    value:
+    - - 0.9508299388041023
+      - -0.7535649019125801
+    - - -0.8031286795777095
+      - 1.2301247963603181
+    - - 0.7529722981210099
+      - -1.7405541161865106
+    - - 0.6579042451647138
+      - -0.9522058178777619
+  b1_hidden_bias:
+    shape:
+    - 2
+    meaning: 隱藏層 2 個神經元各自的偏差值 (bias)
+    value:
+    - 0.7617010255280827
+    - -0.8777180948978979
+  W2_hidden_to_output:
+    shape:
+    - 2
+    - 3
+    meaning: 隱藏層(2) -> 輸出層(3) 的權重矩陣, W2[j][k] = 第 j 個隱藏神經元 到 第 k 個輸出神經元(類別)的權重
+    value:
+    - - -1.3196303700409728
+      - 0.9551042674348716
+      - 1.3045850041748017
+    - - 1.2334640295213524
+      - -1.5602607151785783
+      - -1.9766218170090357
+  b2_output_bias:
+    shape:
+    - 3
+    meaning: 輸出層 3 個神經元(類別)各自的偏差值 (bias)
+    value:
+    - -0.19014263302394258
+    - 0.009814566135138111
+    - -0.22290570800770937
+preprocessing:
+  scaler: StandardScaler
+  mean:
+  - 5.841666666666668
+  - 3.0483333333333342
+  - 3.769999999999999
+  - 1.2049999999999987
+  scale:
+  - 0.837415003978845
+  - 0.44665111913239636
+  - 1.7611359970201048
+  - 0.7594789880788891
+  note: 推論前，輸入特徵須先以 (x - mean) / scale 標準化，才能套用 W1/b1
+forward_pass_note: hidden = sigmoid(X_scaled @ W1 + b1); output = sigmoid(hidden @
+  W2 + b2); predicted_class = argmax(output)
+training_config:
+  solver: adam
+  max_iter: 5000
+  random_state: 42
+  sklearn_hidden_activation: logistic (sigmoid)
+  sklearn_output_activation_internal: softmax (sklearn 內部固定行為，非本範例設定)
+evaluation:
+  accuracy_sklearn_native_predict: 0.7666666666666667
+  accuracy_manual_sigmoid_output: 0.7666666666666667
+</yaml>
+```

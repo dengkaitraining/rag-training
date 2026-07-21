@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>台積電股價預測 - 輸入頁面</title>
+</head>
+<body>
+    <h1>台積電當日收盤價預測</h1>
+    <p>請輸入台積電前三天的收盤價，系統將根據線性迴歸模型預測當天收盤價。</p>
+
+    <form action="/predict" method="post">
+        <table border="1" cellpadding="6">
+            <tr>
+                <td>前一天收盤價 (x1)：</td>
+                <td><input type="text" name="x1" required></td>
+            </tr>
+            <tr>
+                <td>前二天收盤價 (x2)：</td>
+                <td><input type="text" name="x2" required></td>
+            </tr>
+            <tr>
+                <td>前三天收盤價 (x3)：</td>
+                <td><input type="text" name="x3" required></td>
+            </tr>
+        </table>
+        <br>
+        <input type="submit" value="預測">
+        <input type="reset" value="清除">
+    </form>
+</body>
+</html>
