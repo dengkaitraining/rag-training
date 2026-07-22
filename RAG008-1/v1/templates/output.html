@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>查詢結果 - RAG 搜尋</title>
+</head>
+<body>
+    <h1>查詢結果</h1>
+    <hr>
+    <h2>您的提問：</h2>
+    <p>{{ user_prompt }}</p>
+    <hr>
+    <h2>AI 回答：</h2>
+    <div>
+        {# 渲染傳入的動態 HTML 結果 #}
+        {{ result | safe }}
+    </div>
+    <hr>
+    <p><a href="/">返回重新提問</a></p>
+</body>
+</html>
