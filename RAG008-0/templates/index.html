@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>Pinecone 向量資料庫管理與搜尋系統</title>
+</head>
+<body>
+
+    <h1>Pinecone 向量資料庫管理與檢索系統</h1>
+    <hr>
+
+    <!-- 區塊 1: 建立向量資料庫功能 -->
+    <h2>1. 建立 / 匯入向量資料庫</h2>
+    
+    <!-- 顯示建立訊息與錯誤訊息 -->
+    {% if build_message %}
+        <p><strong>【成功】</strong> {{ build_message }}</p>
+    {% endif %}
+    {% if build_error %}
+        <p><strong>【錯誤】</strong> {{ build_error }}</p>
+    {% endif %}
+
+    <!-- 載入預設資料 -->
+    <form action="/build" method="post">
+        <input type="hidden" name="source_type" value="default">
+        <button type="submit">載入預設 data.json 資料庫</button>
+    </form>
+    <br>
+
+    <!-- 上傳外部 JSON 檔案 -->
+    <form action="/build" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="source_type" value="upload">
+        <label for="json_file">選擇外部 JSON 檔案：</label>
+        <input type="file" id="json_file" name="json_file" accept=".json">
+        <button type="submit">預檢格式並上傳寫入</button>
+    </form>
+
+    {% if stats %}
+        <h3>Index 最新統計資訊：</h3>
+        <pre>{{ stats }}</pre>
+    {% endif %}
+
+    <hr>
+
+    <!-- 區塊 2: 查詢向量資料庫功能 -->
+    <h2>2. 檢索向量資料庫</h2>
+
+    {% if search_error %}
+        <p><strong>【錯誤】</strong> {{ search_error }}</p>
+    {% endif %}
+
+    <form action="/search" method="post">
+        <p>
+            <label for="query">請輸入搜尋問題：</label><br>
+            <input type="text" id="query" name="query" size="60" value="{{ query if query else '' }}">
+        </p>
+        <p>
+            <label for="top_k">返回筆數 (Top K)：</label>
+            <input type="number" id="top_k" name="top_k" min="1" max="10" value="{{ top_k if top_k else 3 }}">
+        </p>
+        <button type="submit">開始搜尋</button>
+    </form>
+
+    <!-- 區塊 3: 動態呈現查詢結果 -->
+    {% if searched %}
+        <h3>搜尋結果 (問題: "{{ query }}")</h3>
+        
+        {% if results %}
+            <table border="1" cellpadding="5" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>編號 (ID)</th>
+                        <th>相似度分數</th>
+                        <th>文本內容 (chunk_text)</th>
+                        <th>分類 (category)</th>
+                        <th>來源 (source)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in results %}
+                        <tr>
+                            <td>{{ item.id }}</td>
+                            <td>{{ item.score }}</td>
+                            <td>{{ item.chunk_text }}</td>
+                            <td>{{ item.category }}</td>
+                            <td>{{ item.source }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>未找到相關結果。</p>
+        {% endif %}
+    {% endif %}
+
+</body>
+</html>

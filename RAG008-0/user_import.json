@@ -1,0 +1,32 @@
+[
+  {
+    "_id": "doc-006",
+    "chunk_text": "RAG 對 LLM靜態知識限制的補足與動態應用支持。",
+    "category": "RAG",
+    "source": "Chapter 01 生成式 AI 與 RAG 的核心概念"
+  },
+  {
+    "_id": "doc-007",
+    "chunk_text": "Python、PyCharm 以及虛擬環境",
+    "category": "Python",
+    "source": "Chapter 02 環境架設與金鑰申請"
+  },
+  {
+    "_id": "doc-008",
+    "chunk_text": "LLM as a Judge 利用大型語言模型對回覆進行評分。",
+    "category": "LLM",
+    "source": "Chapter 05 智慧問診機器人實作演練"
+  },
+  {
+    "_id": "doc-009",
+    "chunk_text": "Prompt和Prompt Engineering是什麼。",
+    "category": "Prompt Engineering",
+    "source": "|Chapter 05| Prompt Engineering介紹"
+  },
+  {
+    "_id": "doc-010",
+    "chunk_text": "利用STT & TTS模型，讓你的APP會說話",
+    "category": "STT & TTS",
+    "source": "|Chapter 09| 多模態模型"
+  }
+]

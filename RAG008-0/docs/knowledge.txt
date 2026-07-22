@@ -1,0 +1,5 @@
+AI, "Artificial Intelligent, 主要分鑑別式AI與生成式AI"
+IoT,"Internet of Things, 全面感知、數據處理、決策控制"
+AI, "資料探勘有時也被稱為AI"
+IoT,"各類感測器是蒐集數據的IoT終端裝置"
+AI, "基因演算法這一類的最佳解搜尋也被稱為AI"

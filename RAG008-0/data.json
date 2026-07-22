@@ -1,0 +1,32 @@
+[
+  {
+    "_id": "doc-001",
+    "chunk_text": "RAG 是結合資訊檢索與大型語言模型的生成式人工智慧技術。",
+    "category": "RAG",
+    "source": "AI課程第一章"
+  },
+  {
+    "_id": "doc-002",
+    "chunk_text": "向量資料庫可根據語意相似度搜尋與問題最相關的文件。",
+    "category": "VectorDB",
+    "source": "AI課程第二章"
+  },
+  {
+    "_id": "doc-003",
+    "chunk_text": "AI Agent 可以使用工具、存取資料，並根據目標執行多個步驟。",
+    "category": "Agent",
+    "source": "AI課程第三章"
+  },
+  {
+    "_id": "doc-004",
+    "chunk_text": "Flask 是一個輕量級的 Python Web Application Framework。",
+    "category": "Python",
+    "source": "Python課程"
+  },
+  {
+    "_id": "doc-005",
+    "chunk_text": "Pinecone 是雲端託管的向量資料庫，可應用於語意搜尋與 RAG。",
+    "category": "VectorDB",
+    "source": "AI課程第二章"
+  }
+]
