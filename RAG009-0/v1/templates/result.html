@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>查詢結果</title>
+</head>
+
+<body>
+
+<h2>查詢結果</h2>
+
+<table border="1">
+
+<tr>
+<!-- Jinja2 的 for koop -->
+{% for f in fields %}
+<th>{{ f }}</th>
+{% endfor %}
+
+</tr>
+
+
+{% for row in rows %}
+
+<tr>
+
+{% for f in fields %}
+<td>{{ row[f] }}</td>
+{% endfor %}
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<a href="/">返回</a>
+
+</body>
+
+</html>
