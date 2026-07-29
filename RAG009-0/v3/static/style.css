@@ -1,0 +1,251 @@
+/* ===== 全域設定 ===== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+
+    background:#eef4fb;
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:40px;
+
+    color:#333;
+}
+
+
+/* ===== 卡片 ===== */
+
+.container{
+
+    width:900px;
+    max-width:100%;
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:40px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+
+}
+
+
+/* ===== 標題 ===== */
+
+h1{
+
+    text-align:center;
+
+    color:#2c3e50;
+
+    margin-bottom:35px;
+
+}
+
+h2{
+
+    color:#34495e;
+
+    margin-bottom:12px;
+
+    font-size:20px;
+
+}
+
+.section{
+
+    margin-bottom:30px;
+
+}
+
+
+/* ===== Prompt ===== */
+
+.prompt-box{
+
+    background:#f8fbff;
+
+    border-left:6px solid #3498db;
+
+    padding:18px;
+
+    border-radius:8px;
+
+    font-size:17px;
+
+    line-height:1.6;
+
+    word-break:break-word;
+
+}
+
+
+/* ===== LLM 回答 ===== */
+
+.answer-box{
+
+    background:#f6fff4;
+
+    border-left:6px solid #27ae60;
+
+    padding:20px;
+
+    border-radius:8px;
+
+    font-size:17px;
+
+    line-height:1.8;
+
+    min-height:180px;
+
+    white-space:pre-wrap;
+
+    overflow-wrap:break-word;
+
+}
+
+
+/* ===== 按鈕 ===== */
+
+.button-area{
+
+    text-align:center;
+
+    margin-top:30px;
+
+}
+
+.btn{
+
+    display:inline-block;
+
+    background:#3498db;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:12px 30px;
+
+    border-radius:8px;
+
+    font-size:16px;
+
+    transition:0.3s;
+
+}
+
+.btn:hover{
+
+    background:#2980b9;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 5px 12px rgba(0,0,0,0.2);
+
+}
+
+
+/* ===== 表格（若 LLM 回傳 HTML table）===== */
+
+.answer-box table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-top:10px;
+
+}
+
+.answer-box th{
+
+    background:#3498db;
+
+    color:white;
+
+    padding:10px;
+
+}
+
+.answer-box td{
+
+    border:1px solid #ddd;
+
+    padding:10px;
+
+}
+
+.answer-box tr:nth-child(even){
+
+    background:#f7f7f7;
+
+}
+
+
+/* ===== 程式碼區塊 ===== */
+
+.answer-box pre{
+
+    background:#272822;
+
+    color:#f8f8f2;
+
+    padding:15px;
+
+    border-radius:8px;
+
+    overflow-x:auto;
+
+    margin-top:10px;
+
+}
+
+.answer-box code{
+
+    font-family:Consolas, Monaco, monospace;
+
+}
+
+
+/* ===== 響應式 ===== */
+
+@media (max-width:768px){
+
+    .container{
+
+        padding:25px;
+
+    }
+
+    h1{
+
+        font-size:28px;
+
+    }
+
+    h2{
+
+        font-size:18px;
+
+    }
+
+    .prompt-box,
+    .answer-box{
+
+        font-size:16px;
+
+    }
+
+}
